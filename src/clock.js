@@ -10,7 +10,6 @@ var Clock = ({start, timeType}) => {
 
     if (start === true){
         setTimeout(() => {
-            console.log('this is counter',  counter)
             setCounter(counter - 1)
         }, 1000);
     }
@@ -18,7 +17,6 @@ var Clock = ({start, timeType}) => {
     if(start === false){
         setTimeout(() => {
             setToday(new Date())
-            console.log('updating the time')
             //this makes it so the time will keep updating (every 30 seconds) even if the timer isn't running
         }, 60000);
     }
