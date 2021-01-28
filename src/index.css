@@ -1,3 +1,12 @@
+.App {
+  text-align: center;
+}
+
+body {
+  background-image: url('./study.gif');
+  background-size: cover;
+  background-color: pink;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',monospace;
@@ -37,6 +46,9 @@ button {
   }
   .timerStyle {
     width: 250px;
+  }
+  body {
+    background-image: none;
   }
 }
 /* screens smaller than 500px */
