@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Clock from './clock'
+import { useState } from 'react';
+import React from 'react'
+// import Timer from './timer'
+
 
 function App() {
+
+  // finding today's date and time
+  const [startCounter, setStartCounter] = useState(false);
+
+
+
+
   return (
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Clock start = {startCounter} />
+      <button onClick = {() => setStartCounter(true)}>Start</button>
+      <button onClick = {() => setStartCounter(false)}>Stop</button>
     </div>
   );
 }
