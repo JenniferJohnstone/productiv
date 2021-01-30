@@ -1,18 +1,36 @@
 import {useState} from 'react'
 import './index.css';
+import finished_sound from './finished.mp3'
 
 
-var Clock = ({start, timeType}) => {
+var Clock = ({start, timeType, setStartCounter, pomodoroCount, setPomodoroCount}) => {
 
     const [counter, setCounter ] = useState(0)
     var secondsPassed = timeType + counter
     const [today, setToday] = useState(new Date())
+    var sound = new Audio(finished_sound)
+
+
+    const finished = () => {
+        sound.play()
+        setStartCounter(false) 
+    }
 
     if (start === true){
         setTimeout(() => {
-            setCounter(counter - 1)
+            if(-counter < (timeType)){
+                setCounter(counter - 1)
+            } else {
+                console.log('what?', pomodoroCount, counter)
+                finished()
+                if(timeType == 1 && start == true){
+                    // change to 1500 for pomodoro timetype
+                    setPomodoroCount(pomodoroCount + 1)   
+                }   
+            }
         }, 1000);
     }
+
 
     if(start === false){
         setTimeout(() => {
@@ -43,6 +61,7 @@ var Clock = ({start, timeType}) => {
         <p className = 'ClockStyle'>{time}</p>
         <p className = 'timerStyle'>{finalTime}</p>
         <button onClick = {() => setCounter(0)}>Reset</button>
+
         </>
     )
 }
