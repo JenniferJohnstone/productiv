@@ -32,11 +32,33 @@ button {
   background-color: white; 
   display: block;
   width: 300px;
+  margin-right: auto;
   margin-left: auto; 
-  margin-right: auto; 
   padding: 5px;
   font-size: 100px
 }
+
+.pomoCount {
+  font-size: xx-large;
+}
+
+.mobile {
+  display: none;
+}
+.mainApp {
+  display: inline;
+}
+
+.breakTime {
+  font-size: xx-large;
+  background-color: #fca4a1;
+  color: white;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* screens smaller than 500px */
 
 @media only screen and (max-width:  500px) {
   .ClockStyle {
@@ -50,12 +72,50 @@ button {
   body {
     background-image: none;
   }
+  .bottomText p{
+    color: black;
+    font-size: 20px;
+    float: inline-end;
+  }
+
+  .mobile {
+    display: contents;
+    overflow: scroll;
+  }
+
+  .desktop {
+    display: none;
+  }
 }
-/* screens smaller than 500px */
+
+
+
+/* Screens that are 500px wide and larger */
+
+@media only screen and (min-width:  700px) {
+  .bottomText {
+    display: inline;
+    background-color: #c6695b;
+    float: left;
+    width: 20vw;
+    font-size: 20px;
+    color: white;
+
+  }
+  .pomoCount{
+    color: black;
+    font-size: 20px;
+  }
+
+}
+
+
+
+/* screens larger than 1400px */
 @media only screen and (min-width:  1400px) {
   .ClockStyle {
     margin-left:  80%;
     font-size: 40px;
   }
+  
 }
-/* screens larger than 1400px */

@@ -60,6 +60,13 @@ var Clock = ({start, timeType, setStartCounter, pomodoroCount, setPomodoroCount}
         <>
         <p className = 'ClockStyle'>{time}</p>
         <p className = 'timerStyle'>{finalTime}</p>
+
+        {(pomodoroCount % 4 == 0) && (pomodoroCount !== 0) &&
+              <p className='breakTime'>Time to take a break!</p>
+        }
+
+        {/* having a problem here */}
+
         <button onClick = {() => setCounter(0)}>Reset</button>
 
         </>
