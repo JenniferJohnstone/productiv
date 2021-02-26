@@ -1,11 +1,11 @@
-import {useState} from 'react'
+import { useState } from 'react'
 import './index.css';
 import finished_sound from './finished.mp3'
 
 
-var Clock = ({start, timeType, setStartCounter, pomodoroCount, setPomodoroCount}) => {
+var Clock = ({ start, timeType, setStartCounter, pomodoroCount, setPomodoroCount }) => {
 
-    const [counter, setCounter ] = useState(0)
+    const [counter, setCounter] = useState(0)
     var secondsPassed = timeType + counter
     const [today, setToday] = useState(new Date())
     var sound = new Audio(finished_sound)
@@ -13,26 +13,26 @@ var Clock = ({start, timeType, setStartCounter, pomodoroCount, setPomodoroCount}
 
     const finished = () => {
         sound.play()
-        setStartCounter(false) 
+        setStartCounter(false)
     }
 
-    if (start === true){
+    if (start === true) {
         setTimeout(() => {
-            if(-counter < (timeType)){
+            if (-counter < (timeType)) {
                 setCounter(counter - 1)
             } else {
                 console.log('what?', pomodoroCount, counter)
                 finished()
-                if(timeType == 1 && start == true){
+                if (timeType == 1 && start == true) {
                     // change to 1500 for pomodoro timetype
-                    setPomodoroCount(pomodoroCount + 1)   
-                }   
+                    setPomodoroCount(pomodoroCount + 1)
+                }
             }
         }, 1000);
     }
 
 
-    if(start === false){
+    if (start === false) {
         setTimeout(() => {
             setToday(new Date())
             //this makes it so the time will keep updating (every 30 seconds) even if the timer isn't running
@@ -46,10 +46,10 @@ var Clock = ({start, timeType, setStartCounter, pomodoroCount, setPomodoroCount}
     var seconds = secondsPassed - minutes * 60;
     //a little math to calculate minutes and seconds from the timer (which is in seconds)
 
-    function str_pad_left(string,pad,length) {
-        return (new Array(length+1).join(pad)+string).slice(-length);
+    function str_pad_left(string, pad, length) {
+        return (new Array(length + 1).join(pad) + string).slice(-length);
     }
-    var finalTime = str_pad_left(minutes,'0',2)+':'+str_pad_left(seconds,'0',2);
+    var finalTime = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2);
     //formatting so the time will display as 00:00 
 
 
@@ -58,16 +58,14 @@ var Clock = ({start, timeType, setStartCounter, pomodoroCount, setPomodoroCount}
     return (
 
         <>
-        <p className = 'ClockStyle'>{time}</p>
-        <p className = 'timerStyle'>{finalTime}</p>
+            <p className='ClockStyle'>{time}</p>
+            <p className='timerStyle'>{finalTime}</p>
 
-        {(pomodoroCount % 4 == 0) && (pomodoroCount !== 0) &&
-              <p className='breakTime'>Time to take a break!</p>
-        }
+            {(pomodoroCount % 4 == 0) && (pomodoroCount !== 0) &&
+                <p className='breakTime'>Time to take a break!</p>
+            }
 
-        {/* having a problem here */}
-
-        <button onClick = {() => setCounter(0)}>Reset</button>
+            <button className='buttons' onClick={() => setCounter(0)}>Reset</button>
 
         </>
     )

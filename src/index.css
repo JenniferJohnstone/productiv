@@ -3,13 +3,14 @@
 }
 
 body {
-  background-image: url('./study.gif');
+  background-image: url("./study.gif");
   background-size: cover;
   background-color: pink;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 button {
@@ -23,19 +24,19 @@ button {
   font-size: 50px;
   color: white;
   background-color: black;
-  margin-left: 70%;
-  margin-right: 100px;
+  /* margin-left: 70%;
+  margin-right: 100px; */
   width: 200px;
 }
 
 .timerStyle {
-  background-color: white; 
+  background-color: white;
   display: block;
   width: 300px;
   margin-right: auto;
-  margin-left: auto; 
+  margin-left: auto;
   padding: 5px;
-  font-size: 100px
+  font-size: 100px;
 }
 
 .pomoCount {
@@ -60,10 +61,10 @@ button {
 
 /* screens smaller than 500px */
 
-@media only screen and (max-width:  500px) {
+@media only screen and (max-width: 500px) {
   .ClockStyle {
     margin-right: auto;
-    margin-left:  auto;
+    margin-left: auto;
     font-size: 40px;
   }
   .timerStyle {
@@ -72,7 +73,7 @@ button {
   body {
     background-image: none;
   }
-  .bottomText p{
+  .bottomText p {
     color: black;
     font-size: 20px;
     float: inline-end;
@@ -88,34 +89,52 @@ button {
   }
 }
 
-
-
 /* Screens that are 500px wide and larger */
 
-@media only screen and (min-width:  700px) {
+@media only screen and (min-width: 700px) {
   .bottomText {
-    display: inline;
     background-color: #c6695b;
     float: left;
-    width: 20vw;
+    width: 320px;
     font-size: 20px;
     color: white;
-
+    display: inline;
   }
-  .pomoCount{
+  .pomoCount {
     color: black;
     font-size: 20px;
   }
 
+  .mobile {
+    display: contents;
+    overflow: scroll;
+  }
+
+  .desktop {
+    display: none;
+  }
 }
 
-
-
 /* screens larger than 1400px */
-@media only screen and (min-width:  1400px) {
+@media only screen and (min-width: 1400px) {
   .ClockStyle {
-    margin-left:  80%;
+    margin-left: 30vw;
     font-size: 40px;
   }
-  
+  .timerStyle {
+    margin-right: 30vw;
+  }
+  .mainApp {
+    float: right;
+    margin-right: 5vw;
+  }
+  .buttons {
+    margin-right: 25vw;
+  }
+  .bottomText {
+    margin-top: 20vh;
+  }
+  .breakTime {
+    margin-right: 30vw;
+  }
 }
