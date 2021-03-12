@@ -3,7 +3,7 @@ This is a project to create a productivity timer/application inspired by the pom
 The goal functionalities of this applicaiton is: 
 1. A timer that the user can set, stop or pause. (done) 
 2. A record off how many pomodoros a user has completed. (done) 
-3. A source of ambient sound or music that the user can play. 
+3. A source of ambient sound or music that the user can play and adjust volume to. 
 
 Current build: https://pr0ductiv.herokuapp.com/
 
