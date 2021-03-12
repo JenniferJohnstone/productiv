@@ -62,7 +62,7 @@ button {
 /* ASMR styling */
 .Rain {
   display: inline-block;
-  opacity: 50%;
+  opacity: 0.5;
 }
 .Rain:hover {
   opacity: 100%;
