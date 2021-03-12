@@ -14,6 +14,9 @@ var Clock = ({ start, timeType, setStartCounter, pomodoroCount, setPomodoroCount
     const finished = () => {
         sound.play()
         setStartCounter(false)
+        if (timeType === 1500) {
+            setPomodoroCount(pomodoroCount + 1)
+        }
     }
 
     if (start === true) {
@@ -21,23 +24,17 @@ var Clock = ({ start, timeType, setStartCounter, pomodoroCount, setPomodoroCount
             if (-counter < (timeType)) {
                 setCounter(counter - 1)
             } else {
-                console.log('what?', pomodoroCount, counter)
                 finished()
-                if (timeType == 1 && start == true) {
-                    // change to 1500 for pomodoro timetype
-                    setPomodoroCount(pomodoroCount + 1)
-                }
             }
         }, 1000);
     }
 
 
-    if (start === false) {
-        setTimeout(() => {
-            setToday(new Date())
-            //this makes it so the time will keep updating (every 30 seconds) even if the timer isn't running
-        }, 60000);
-    }
+    setTimeout(() => {
+        setToday(new Date())
+        //this makes it so the time will keep updating (every 30 seconds
+    }, 60000);
+
 
     var time = today.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
     //formatting the time to display
