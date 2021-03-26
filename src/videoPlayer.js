@@ -18,7 +18,7 @@ var VideoPlayer = ({ pomodoroCount }) => {
                 <Video />
 
 
-                <p className='pomoCount'><span style={{ fontWeight: 'bold' }}>Pomodoros Completed: </span> {pomodoroCount}</p>
+                {/* <p className='pomoCount'><span style={{ fontWeight: 'bold' }}>Pomodoros Completed: </span> {pomodoroCount}</p> */}
             </div>
         </>
     )

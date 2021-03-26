@@ -13,6 +13,10 @@ code {
     monospace;
 }
 
+.container {
+  display: inline;
+}
+
 button {
   font-size: 20px;
   margin: 5px;
@@ -24,9 +28,8 @@ button {
   font-size: 50px;
   color: white;
   background-color: black;
-  /* margin-left: 70%;
-  margin-right: 100px; */
   width: 200px;
+  text-align: center;
 }
 
 .timerStyle {
@@ -48,6 +51,9 @@ button {
 }
 .mainApp {
   display: inline;
+  float: right;
+  width: 800px;
+  margin-left: 100px;
 }
 
 .breakTime {
@@ -138,10 +144,10 @@ button {
   }
   .mainApp {
     float: right;
-    margin-right: 5vw;
   }
   .buttons {
     margin-right: 25vw;
+    float: right;
   }
   .bottomText {
     width: 350px;
@@ -149,5 +155,8 @@ button {
   }
   .breakTime {
     margin-right: 30vw;
+  }
+  .mobile {
+    float: left;
   }
 }

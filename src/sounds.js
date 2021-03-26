@@ -28,10 +28,12 @@ function Sounds({ setStartCounter, setTimeType }) {
                     playSound()
                     setStartCounter(true)
                 }}>Start</button>
+
                 <button onClick={() => {
                     otherSound()
                     setStartCounter(false)
                 }}>Stop</button>
+
                 <br></br>
                 <button onClick={() => {
                     playStopSound()

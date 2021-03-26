@@ -4,12 +4,17 @@ import finished_sound from './finished.mp3'
 
 
 var Clock = ({ start, timeType, setStartCounter, pomodoroCount, setPomodoroCount }) => {
-
     const [counter, setCounter] = useState(0)
+
     var secondsPassed = timeType + counter
     const [today, setToday] = useState(new Date())
     var sound = new Audio(finished_sound)
 
+    const reset = () => {
+        setStartCounter(false)
+        console.log('setting counter to 0')
+        setCounter(0)
+    }
 
     const finished = () => {
         sound.play()
@@ -19,16 +24,16 @@ var Clock = ({ start, timeType, setStartCounter, pomodoroCount, setPomodoroCount
         }
     }
 
-    if (start === true) {
-        setTimeout(() => {
+    setTimeout(() => {
+        if (start === true) {
             if (-counter < (timeType)) {
+                console.log('setting counter to the timer time')
                 setCounter(counter - 1)
             } else {
                 finished()
             }
-        }, 1000);
-    }
-
+        }
+    }, 1000);
 
     setTimeout(() => {
         setToday(new Date())
@@ -49,6 +54,7 @@ var Clock = ({ start, timeType, setStartCounter, pomodoroCount, setPomodoroCount
     var finalTime = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(seconds, '0', 2);
     //formatting so the time will display as 00:00 
 
+    console.log()
 
 
 
@@ -62,7 +68,9 @@ var Clock = ({ start, timeType, setStartCounter, pomodoroCount, setPomodoroCount
                 <p className='breakTime'>Time to take a break!</p>
             }
 
-            <button className='buttons' onClick={() => setCounter(0)}>Reset</button>
+            <button className='buttons' onClick={() => {
+                reset()
+            }}>Reset</button>
 
         </>
     )
