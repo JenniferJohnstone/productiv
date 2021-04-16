@@ -19,10 +19,6 @@ function App() {
       </div>
 
 
-      {/* <div className='desktop'>
-        <VideoPlayer />
-      </div> */}
-
       <div className='mobile'>
         <VideoPlayer />
       </div>

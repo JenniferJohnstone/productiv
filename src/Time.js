@@ -14,7 +14,7 @@ function Time() {
 
 
     return (
-        <div>
+        <div className='clockContainer'>
             <p className='ClockStyle'>{time}</p>
         </div>
     );

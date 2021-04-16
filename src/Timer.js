@@ -3,7 +3,7 @@ import './index.css';
 
 var Clock = () => {
 
-    const [seconds, setSeconds] = useState(0);
+    const [seconds, setSeconds] = useState(1500);
     const [isActive, setIsActive] = useState(false);
 
 
@@ -49,27 +49,26 @@ var Clock = () => {
 
     return (
 
-        <>
+        <div className='timerContainer'>
             <p className='timerStyle'>{finalTime}</p>
 
-            {/* {(pomodoroCount % 4 == 0) && (pomodoroCount !== 0) && */}
-            {/* <p className='breakTime'>Time to take a break!</p> */}
-            {/* } */}
+            <div className='buttonContainer'>
+                <button className='buttons' onClick={() => {
+                    toggle()
+                }}>{isActive ? 'Pause' : 'Start'}</button>
 
-            <button className='buttons' onClick={() => {
-                toggle()
-            }}>{isActive ? 'Pause' : 'Start'}</button>
+                <button className='buttons' onClick={() => {
+                    reset()
+                }}>Reset</button>
 
-            <button className='buttons' onClick={() => {
-                reset()
-            }}>Reset</button>
-
-            <div className='container'>
-                <button className='buttons' onClick={() => setTime(1500)}>Pomodoro</button>
-                <button className='buttons' onClick={() => setTime(300)}>Short Break</button>
-                <button className='buttons' onClick={() => setTime(900)}>Long Break</button>
+                <div className='container'>
+                    <button className='buttons' onClick={() => setTime(1500)}>Pomodoro</button>
+                    <button className='buttons' onClick={() => setTime(300)}>Short Break</button>
+                    <button className='buttons' onClick={() => setTime(900)}>Long Break</button>
+                </div>
             </div>
-        </>
+
+        </div>
     )
 }
 
