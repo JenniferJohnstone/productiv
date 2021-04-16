@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import './index.css';
+import playSound from './finishedSound';
 
 var Clock = () => {
 
     const [seconds, setSeconds] = useState(1500);
     const [isActive, setIsActive] = useState(false);
+    const [pomodoro, setPomodoro] = useState({ isActive: true, count: 0 })
 
 
     function toggle() {
@@ -38,6 +40,13 @@ var Clock = () => {
             interval = setInterval(() => {
                 if (seconds > 0) {
                     setSeconds(seconds => seconds - 1);
+                } else {
+                    // this will occur when the seconds have run out and clears the interval to stop the useEffect
+                    playSound()
+                    if (pomodoro.isActive == true) {
+                        setPomodoro({ isActive: false, count: pomodoro.count + 1 })
+                    }
+                    clearInterval(interval)
                 }
             }, 1000);
         } else if (!isActive && seconds !== 0) {
@@ -51,6 +60,12 @@ var Clock = () => {
 
         <div className='timerContainer'>
             <p className='timerStyle'>{finalTime}</p>
+            {pomodoro.count % 4 == 0 &&
+                <h1 style={{ color: 'white', backgroundColor: 'black', width: '300px', marginLeft: 'auto', marginRight: 'auto' }}>Time for a break!</h1>
+            }
+            <h1 style={{ color: 'white', backgroundColor: '#d87a6c', width: '300px', marginLeft: 'auto', marginRight: 'auto' }}><span style={{ color: 'darkred' }}>Pomodoro Count</span> {pomodoro.count}</h1>
+
+
 
             <div className='buttonContainer'>
                 <button className='buttons' onClick={() => {
@@ -62,10 +77,18 @@ var Clock = () => {
                 }}>Reset</button>
 
                 <div className='container'>
-                    <button className='buttons' onClick={() => setTime(1500)}>Pomodoro</button>
-                    <button className='buttons' onClick={() => setTime(300)}>Short Break</button>
-                    <button className='buttons' onClick={() => setTime(900)}>Long Break</button>
+                    <button className='buttons' onClick={() => {
+                        setTime(2)
+                        setPomodoro({ isActive: true, count: pomodoro.count })
+                    }}>Pomodoro</button>
+                    {/* 1500 */}
+                    <button className='buttons' onClick={() => setTime(1)}>Short Break</button>
+                    {/* 300 */}
+                    <button className='buttons' onClick={() => setTime(1)}>Long Break</button>
+                    {/* 900 */}
                 </div>
+
+
             </div>
 
         </div>
