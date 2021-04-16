@@ -60,7 +60,7 @@ var Clock = () => {
 
         <div className='timerContainer'>
             <p className='timerStyle'>{finalTime}</p>
-            {pomodoro.count % 4 == 0 &&
+            {pomodoro.count % 4 == 0 && pomodoro.count !== 0 &&
                 <h1 style={{ color: 'white', backgroundColor: 'black', width: '300px', marginLeft: 'auto', marginRight: 'auto' }}>Time for a break!</h1>
             }
             <h1 style={{ color: 'white', backgroundColor: '#d87a6c', width: '300px', marginLeft: 'auto', marginRight: 'auto' }}><span style={{ color: 'darkred' }}>Pomodoro Count</span> {pomodoro.count}</h1>
@@ -81,11 +81,8 @@ var Clock = () => {
                         setTime(1500)
                         setPomodoro({ isActive: true, count: pomodoro.count })
                     }}>Pomodoro</button>
-                    {/* 1500 */}
                     <button className='buttons' onClick={() => setTime(300)}>Short Break</button>
-                    {/* 300 */}
                     <button className='buttons' onClick={() => setTime(900)}>Long Break</button>
-                    {/* 900 */}
                 </div>
 
 
