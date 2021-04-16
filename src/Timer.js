@@ -78,13 +78,13 @@ var Clock = () => {
 
                 <div className='container'>
                     <button className='buttons' onClick={() => {
-                        setTime(2)
+                        setTime(1500)
                         setPomodoro({ isActive: true, count: pomodoro.count })
                     }}>Pomodoro</button>
                     {/* 1500 */}
-                    <button className='buttons' onClick={() => setTime(1)}>Short Break</button>
+                    <button className='buttons' onClick={() => setTime(300)}>Short Break</button>
                     {/* 300 */}
-                    <button className='buttons' onClick={() => setTime(1)}>Long Break</button>
+                    <button className='buttons' onClick={() => setTime(900)}>Long Break</button>
                     {/* 900 */}
                 </div>
 
