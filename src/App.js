@@ -4,8 +4,9 @@ import Time from './Time'
 import Timer from './Timer'
 import VideoPlayer from './videoPlayer'
 
-
 function App() {
+
+  Notification.requestPermission();
 
 
   return (

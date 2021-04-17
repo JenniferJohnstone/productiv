@@ -5,7 +5,6 @@
 body {
   background-image: url("./study.gif");
   background-size: cover;
-  background-color: pink;
 }
 
 code {
@@ -42,9 +41,6 @@ button {
   font-size: xx-large;
 }
 
-.mobile {
-  display: none;
-}
 .mainApp {
   display: inline;
   float: right;
@@ -87,15 +83,13 @@ button {
     margin-left: auto;
     font-size: 40px;
   }
-  .timerStyle {
-    width: 250px;
-  }
   body {
-    background-image: none;
+    background-image: url("./mobileWallpaper.jpg");
   }
-  .bottomText p {
+  .bottomText {
     color: black;
     font-size: 20px;
+    background-color: white;
   }
 
   .mobile {

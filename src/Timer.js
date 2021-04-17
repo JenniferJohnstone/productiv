@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './index.css';
 import playSound from './finishedSound';
+import { Helmet } from 'react-helmet'
 
 var Clock = () => {
 
@@ -33,6 +34,14 @@ var Clock = () => {
     var finalTime = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(displaySeconds, '0', 2);
     //formatting so the time will display as 00:00 
 
+    // notification function 
+    const notify = () => {
+        new Notification("Time's up!", {
+            body: "It's time to take a break",
+            icon: 'https://i.pinimg.com/736x/8f/b3/84/8fb384e3fb66cc2ac4e420c61ada6d1c.jpg',
+        })
+    };
+
 
     useEffect(() => {
         let interval = null;
@@ -43,6 +52,7 @@ var Clock = () => {
                 } else {
                     // this will occur when the seconds have run out and clears the interval to stop the useEffect
                     playSound()
+                    notify()
                     if (pomodoro.isActive == true) {
                         setPomodoro({ isActive: false, count: pomodoro.count + 1 })
                     }
@@ -59,6 +69,9 @@ var Clock = () => {
     return (
 
         <div className='timerContainer'>
+            <Helmet>
+                <title> {finalTime}</title>
+            </Helmet>
             <p className='timerStyle'>{finalTime}</p>
             {pomodoro.count % 4 == 0 && pomodoro.count !== 0 &&
                 <h1 style={{ color: 'white', backgroundColor: 'black', width: '300px', marginLeft: 'auto', marginRight: 'auto' }}>Time for a break!</h1>
