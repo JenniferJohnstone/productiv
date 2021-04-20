@@ -76,7 +76,7 @@ var Clock = () => {
             {pomodoro.count % 4 == 0 && pomodoro.count !== 0 &&
                 <h1 style={{ color: 'white', backgroundColor: 'black', width: '300px', marginLeft: 'auto', marginRight: 'auto' }}>Time for a break!</h1>
             }
-            <h1 style={{ color: 'white', backgroundColor: '#d87a6c', width: '300px', marginLeft: 'auto', marginRight: 'auto' }}><span style={{ color: 'darkred' }}>Pomodoro Count</span> {pomodoro.count}</h1>
+            <h1 className="pomoStyle"><span style={{ color: 'darkred' }}>Pomodoro Count</span> {pomodoro.count}</h1>
 
 
 
@@ -90,7 +90,7 @@ var Clock = () => {
                 }}>Reset</button>
 
                 <div className='container'>
-                    <button className='buttons' onClick={() => {
+                    <button tabindex='0' className='buttons' onClick={() => {
                         setTime(1500)
                         setPomodoro({ isActive: true, count: pomodoro.count })
                     }}>Pomodoro</button>

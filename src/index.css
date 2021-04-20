@@ -17,6 +17,18 @@ button {
   margin: 5px;
   margin-left: 8px;
   margin-right: 8px;
+  border-color: white;
+  padding: 5px;
+  background-color: #c6695b;
+  border: none;
+}
+
+/* editing the buttons so they look good */
+
+button:focus {
+  background-color: #c6695b;
+  color: white;
+  border: none;
 }
 
 .ClockStyle {
@@ -35,10 +47,16 @@ button {
   margin-left: auto;
   padding: 5px;
   font-size: 100px;
+  border: 2px solid black;
 }
 
-.pomoCount {
-  font-size: xx-large;
+.pomoStyle {
+  color: white;
+  background-color: #d87a6c;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid black;
 }
 
 .mainApp {
@@ -59,6 +77,10 @@ button {
 
 .buttons {
   float: left;
+}
+
+.bottomText {
+  border: 2px solid black;
 }
 
 /* ASMR styling */
@@ -90,6 +112,8 @@ button {
     color: black;
     font-size: 20px;
     background-color: white;
+    padding: 5px;
+    border: 2px solid black;
   }
 
   .mobile {
@@ -128,10 +152,6 @@ button {
     margin-top: 20px;
     width: 100vw;
     padding: 10px;
-  }
-  .pomoCount {
-    color: black;
-    font-size: 20px;
   }
 
   .mobile {
