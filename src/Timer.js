@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './index.css';
 import playSound from './finishedSound';
+import startSound from './timerStart'
 import { Helmet } from 'react-helmet'
 
 var Clock = () => {
@@ -8,7 +9,6 @@ var Clock = () => {
     const [seconds, setSeconds] = useState(1500);
     const [isActive, setIsActive] = useState(false);
     const [pomodoro, setPomodoro] = useState({ isActive: true, count: 0 })
-
 
     function toggle() {
         setIsActive(!isActive);
@@ -94,6 +94,8 @@ var Clock = () => {
             <div className='buttonContainer'>
                 <button className='buttons' onClick={() => {
                     toggle()
+                    console.log(isActive)
+                    if (!isActive) { startSound() }
                 }}>{isActive ? 'Pause' : 'Start'}</button>
 
                 <button className='buttons' onClick={() => {
