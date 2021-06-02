@@ -10,6 +10,7 @@ var Clock = () => {
     const [isActive, setIsActive] = useState(false);
     const [pomodoro, setPomodoro] = useState({ isActive: true, count: 0 })
 
+
     function toggle() {
         setIsActive(!isActive);
     }
@@ -66,6 +67,9 @@ var Clock = () => {
                     notify()
                     if (pomodoro.isActive == true) {
                         setPomodoro({ isActive: false, count: pomodoro.count + 1 })
+                        // setting a cookie to track a user's pomodoros over time
+                        var allTime = localStorage.getItem('allTimeCount') ? parseInt(localStorage.getItem('allTimeCount')) : 0
+                        localStorage.setItem('allTimeCount', allTime + 1)
                     }
                     clearInterval(interval)
                 }
