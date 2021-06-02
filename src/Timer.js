@@ -24,6 +24,17 @@ var Clock = () => {
         setSeconds(time)
     }
 
+    // detecting the time type for notification message 
+    var timeType = 'Time to take a break!'
+    if (seconds == 1500) {
+        timeType = 'Time to take a break!'
+    } else if (seconds == 300) {
+        timeType = "Break's over! Back to work!"
+    } else if (seconds == 900) {
+        timeType = 'Time for your long break, go stretch your legs and get some air.'
+    }
+
+
     var minutes = Math.floor(seconds / 60);
     var displaySeconds = seconds - minutes * 60;
     //a little math to calculate minutes and seconds from the timer (which is in seconds)
@@ -34,10 +45,10 @@ var Clock = () => {
     var finalTime = str_pad_left(minutes, '0', 2) + ':' + str_pad_left(displaySeconds, '0', 2);
     //formatting so the time will display as 00:00 
 
-    // notification function 
+    // notification to user 
     const notify = () => {
         new Notification("Time's up!", {
-            body: "It's time to take a break",
+            body: timeType,
             icon: 'https://i.pinimg.com/736x/8f/b3/84/8fb384e3fb66cc2ac4e420c61ada6d1c.jpg',
         })
     };
